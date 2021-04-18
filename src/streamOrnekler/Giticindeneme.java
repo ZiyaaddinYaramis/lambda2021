@@ -9,6 +9,6 @@ public class Giticindeneme {
           System.out.println("asdadadadadadad");
           System.out.println("asdadadadadadad");
         
-        
+
     }
 }
