@@ -20,6 +20,7 @@ public class Stream02Integer {
         liste.add(500);
 
         tekKareYazdir(liste);
+        System.out.println("\nTOPLAM:" + tekKupToplami(liste));
     }
 
     //**************************************************************************************

@@ -51,10 +51,10 @@ public class Stream01Integer {
         //**************************************************************************************
 
         System.out.println("\n==== ÇİFT SAYILAR(METHOD) =====");
-        çiftleriYazdır(rakamlar);
+        çiftleriYazdir(rakamlar);
     }
 
-    public static void çiftleriYazdır(List <Integer> liste){
+    public static void çiftleriYazdir(List <Integer> liste){
         // liste.stream().filter(x->x%2==0).forEach(x-> System.out.print(x + " "));
         liste.stream().filter(Stream01Integer::çiftMi).forEach(Stream01Integer::yazdir);
     }

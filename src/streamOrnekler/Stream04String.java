@@ -62,6 +62,7 @@ public class Stream04String {
     public static void uzunlugaGoreYazdir (List <String> liste, int uzunluk){
         liste.stream().filter(t->t.length() > uzunluk).forEach(System.out::println);
     }
+
     //********************************************************************************************
     // ORNEK19: Listedeki tüm elemanların uzunluklarına göre sıralayarak KÜÇÜK harf olarak yazdıran
     // metodu tanımlayalım..
@@ -72,6 +73,7 @@ public class Stream04String {
                 map(t -> t.toLowerCase()).
                 forEach(System.out::println);
     }
+
     //*****************************************************************************************
     // ÖRNEK20: Listedeki TÜM elemanların uzunlukları belirtilen uzunluktan KÜÇÜK mü
     // diye kontrol eden metodu yazınız.
@@ -80,6 +82,7 @@ public class Stream04String {
     public static boolean uzunlukKucukMu(List <String> liste,int uzunluk ){
         return liste.stream().allMatch(t->t.length() < uzunluk);
     }
+
     //****************************************************************************************************
     // ÖRNEK21: Listedeki TÜM elemanların belirtilen harfi ile başlamadığını kontrol eden metodu yazınız.
     //****************************************************************************************************
@@ -95,6 +98,7 @@ public class Stream04String {
     public static boolean herhangiBitenVarMi(List <String> liste, String harf){
         return liste.stream().anyMatch(t->t.endsWith(harf));
     }
+
     //****************************************************************************************************
     // ÖRNEK23: A ile başlayıp O ile biten elemanları yazdıran metotu tanımlayınz.
     //****************************************************************************************************
@@ -113,6 +117,7 @@ public class Stream04String {
                 map(t-> t  + " : " + t.length() + "\t").
                 forEach(System.out::print);
     }
+
     //****************************************************************************************************
     //  ÖRNEK25: Küçük Büyük harf ayırmaksızın A harfi ile başlayan isimleri yazdıran metodu tanımlayınız.
     //****************************************************************************************************
