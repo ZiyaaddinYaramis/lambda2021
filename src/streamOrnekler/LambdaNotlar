@@ -126,3 +126,10 @@ COK ÖNEMLI!!!
 
 
 
+
+// Map : Stream'in transformasyon method'udur. Veriyi degistirir.
+// FlapMap : Nested olan Collection'lari dumuduz bir hale getiriyor, islenmesi kolay olsun diye.
+
+
+
+

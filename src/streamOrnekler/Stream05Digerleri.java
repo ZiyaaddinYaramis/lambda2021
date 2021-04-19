@@ -13,7 +13,7 @@ public class Stream05Digerleri {
         System.out.println("Faktoriyel=" + faktoriyel(10));
         System.out.println("Faktoriyel=" + faktoriyel1(20));
         System.out.println("Faktoriyel=" + faktoriyel2(34));
-        System.out.println("NOtları 50'den büyük olanlar:" + doubleDiziCevirList());
+        System.out.println("Notları 50'den büyük olanlar:" + doubleDiziCevirList());
 
     }
 
@@ -102,14 +102,49 @@ public class Stream05Digerleri {
         return DoubleStream.iterate(1, t->t+1).limit(n).reduce(1,(x, y)->x*y);
     }
 
+
+
+
+
     //*********************************************************************************************
     // ÖRNEK28: Bir double diziyi (notlar) Stream nesnesine dönüştürerek bu dizi içerisinde bulunan
     // sayıların 50 den büyük olanlarını ayrı bir listeye kaydererek yazdıran metodu tanımlayınız
     //**********************************************************************************************
-    public static List<Double> doubleDiziCevirList() {
-        Double[] notlar = {88.5, 52.3, 88.9, 100.0, 99.6, 42.0, 10.0};
+
+
+    public static List<Double> doubleDiziCevirList() { //  doubleDiziCevirList() method parametre almiyor cunku biz diziyi icerde tanliyacagiz
+
+        Double[] notlar = {88.5, 52.3, 88.9, 100.0, 99.6, 42.0, 10.0}; // double bir array dizi olusturduk
+
         Stream<Double> streamNotlar = Stream.of(notlar);
+
+
+        /*
+        Stream.of(); methodu ile elinizdeki diziyi stream e cevirebilirsiniz
+
+        Stream<Double> streamNotlar ==> data tyyp double olan  streamNotlar isminde
+        bir stream objesi olusturuldu (Stream.of(notlar) methodu ile assing edildi)
+
+
+        VERY IMPORTANT!     Stream api kendi icinde nesnelerle(objelerle) calistigi icin non primitive kullanir
+        eger siz  primitive data tyyp kullanmak isterseniz  casting yapmak zorundasiniz
+
+        esim;
+
+        double[] notlar = {88.5, 52.3, 88.9, 100.0, 99.6, 42.0, 10.0}; // double bir array dizi olusturduk
+        Stream<Double> streamNotlar = (Stream<Double>) Stream.of(notlar);
+
+        "double[] notlar" da primitive olan double'i non primitive olan Double  ile degistirirseniz casting yapmaya gerek kalmaz
+
+         */
+
+
         return streamNotlar.filter(t -> t > 50.0).collect(Collectors.toList());
+
+        /*
+        collect()==> olusturulan degerleri yeni collection yapmak icin;Bir listeye saklamak icin,
+         */
+
     }
 
 }
