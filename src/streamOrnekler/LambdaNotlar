@@ -14,9 +14,6 @@ En yaygın kullanım, var olan collection u stream a çevirmektir
 
 
 
-
-
-
 Stream api de pupeline de ara islemler lazy'dir. (Lazy tembel demektir)
 Cunku arkadan gelecek islemlerin durumu degisebileceginden dolayi. Agirdan aliyor
 
@@ -28,7 +25,7 @@ Stream kaynagi:collection,List,Set,Array,File...
 
 
 
-Ara islemler: (En yaygin)
+ARA ISLEMLER: (En yaygin)
 
 filter()        ==>Filtrele(collection'larin icindekileri opsiyonel olarak filtreliyor)->basta olmasi mantiklidir
 örn; .filter( (x) -> x>10)
@@ -52,7 +49,7 @@ flatMap()==> birden fazla coll birlestirir (örn iki dizimiz var bunu tek bir di
 
 
 
-Terminal islemleri: (stream'i kapatan terminal operatordur)
+TERMINAL ISLEMLERI: (Stream'i kapatan terminal operatordur)
 
 1)Terminal islemi Stream nesnesini alir ve tuketir.(eager)
 2)Sadece tek terminal islemi kullanilabilir.
@@ -63,6 +60,24 @@ forEach()==> yazdirir, (verdiginiz sarta göre yazdirir. iterasyon yapar)
 
 Cok önemli!! reduce()==> kendi terminal islemi yapabiliriz ama lambda ifadesi, indirgeme,
 (reduce un icinde kendi terminal islemimizi yazabiliriz veya bir method referansi cagirabiliriz)
+
+    reduce ardisik ilerleyen islenler icin uygundur
+    reduce(1,(x,y) -> x*y)
+
+           1 ==> identifier (tanimlayici) yani baslangic degeri
+
+             (x,y) -> x*y ==> lambda ifadesi
+
+                reduce(1,(x , y) -> x*y)
+                          1   1 => 1
+                          1   2 => 2
+                          2   3 => 6
+                          6   4 => 24
+                         24   5 => 120
+                         *    6
+                         *    7
+
+
 
 collect()==> olusturulan degerleri yeni collection yapmak icin;Bir listeye saklamak icin,
 
@@ -76,11 +91,38 @@ count()==> kac tane o veriden var
 
 
           Collection'larimizi stream method;u ile Stream'e cevirmeyi ogrendik.
+
           Collection : List,Map,HashMap vb..
+
           Stream'e cevirdikten sonra Stream API kullanarak pipeLine'a sokuyorduk.
-          IntStream : Integer seklinde Stream olusturabiliriz.
+
+          IntStream : Integer seklinde Stream olusturabiliriz. (IntStream= integer stream olusturan bir nesnedir)
           LongStream, DoubleStream
+
           Bunlarin ne artisi var ? Sayisal degerlerle islem yapacaksak isleri kolaylastiriyor.
           Biz istersek Integer, Double, Long tipinde Stream'ler olusturabiliyoruz.
+
+
+IntStream method'lari;
+
+.of(-,-,-) ==> integer degerler olusturabilirsiniz
+
+.range(x,y) ==> methodu ile bir integer araligi  verebiliriz, verilen araliklarda bir Integer stream olusturabiliriz
+                x dahil y dahil degildir
+
+.rangeClosed(x,y) ==> methodu ile bir integer araligi  verebiliriz, verilen araliklarda bir Integer stream olusturabiliriz
+                      x ve y dahildir.
+
+
+
+
+COK ÖNEMLI!!!
+        .iterate(1, t->t+1).limit(n)   ==> ara islemdir (terminal degil!)
+
+                iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
+                Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+
+
+
 
 

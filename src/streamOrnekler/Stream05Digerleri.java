@@ -58,8 +58,6 @@ public class Stream05Digerleri {
 
 
 
-
-
     //****************************************************************************************************
     // ÖRNEK27: Berlirtilen sayının faktoriyelini hesaplayan metodunu tanımlayınız.
     //****************************************************************************************************
@@ -67,9 +65,30 @@ public class Stream05Digerleri {
     // Döngünün biteceği sayı ise limit() metodu ile gösterilir.
 
     public static Integer faktoriyel(int n){
-        // return IntStream.rangeClosed(1,n).reduce(1,(x,y)->x*y);
-        return IntStream.iterate(1, t->t+1).limit(n).reduce(1,(x,y)->x*y);
+        /*
+        return IntStream.rangeClosed(1,n).reduce(1,(x,y)->x*y);
+
+
+        reduce ardisik ilerleyen islenler icin uygundur
+    reduce(1,(x,y) -> x*y)
+
+           1 ==> identifier (tanimlayici) yani baslangic degeri
+
+             (x,y) -> x*y ==> lambda ifadesi
+
+                reduce(1,(x , y) -> x*y)
+                          1   1 => 1
+                          1   2 => 2
+                          2   3 => 6
+                          6   4 => 24
+                         24   5 => 120
+                         *    6
+                         *    7
+         */
+
+           return IntStream.iterate(1, t->t+1).limit(n).reduce(1,(x,y)->x*y);
     }
+
 
     // InStream gibi LongStream ve DoubleStream'ler de bulunmaktadır.
     public static Long faktoriyel1(int n){

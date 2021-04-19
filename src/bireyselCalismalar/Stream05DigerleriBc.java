@@ -2,7 +2,10 @@ package bireyselCalismalar;
 
 import streamOrnekler.Methodlar;
 
+import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Stream05DigerleriBc {
     public static void main(String[] args) {
@@ -13,6 +16,8 @@ public class Stream05DigerleriBc {
         tekSayilarinToplami(4, 7);
         System.out.println(tekSayilarinToplamiDondur(4, 7));
         System.out.println(tekSayilarinToplamiDondurLambda(4,7));
+        System.out.println("Faktoriyel Mehtod'u : " + faktoriyel(6));
+        System.out.println("Faktoriyel1 Mehtod'u : " + faktoriyel1(6));
 
     }
 
@@ -50,4 +55,32 @@ public class Stream05DigerleriBc {
         return IntStream.rangeClosed(ilk, son).filter(x-> x%2!=0).sum();
     }
 
+    //****************************************************************************************************
+    // ÖRNEK27: Berlirtilen sayının faktoriyelini hesaplayan metodunu tanımlayınız.
+    //****************************************************************************************************
+    // iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
+    // Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+
+    public static int faktoriyel(int n){
+        return IntStream.rangeClosed(1,n).reduce(1,(x,y) -> x*y);
+    }
+
+    public static Integer faktoriyel1(int n){
+        return IntStream.iterate(1, x -> x+1).limit(n).reduce(1,(x, y)->x*y);
+    }
+
+
+    //*********************************************************************************************
+    // ÖRNEK28: Bir double diziyi (notlar) Stream nesnesine dönüştürerek bu dizi içerisinde bulunan
+    // sayıların 50 den büyük olanlarını ayrı bir listeye kaydererek yazdıran metodu tanımlayınız
+    //**********************************************************************************************
+    public static List<Double> doubleDiziCevirList() {
+        Double[] notlar = {88.5, 52.3, 88.9, 100.0, 99.6, 42.0, 10.0};
+        Stream<Double> streamNotlar = Stream.of(notlar);
+        return streamNotlar.filter(t -> t > 50.0).collect(Collectors.toList());
+    }
+
 }
+
+
+
