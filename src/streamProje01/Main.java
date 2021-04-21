@@ -54,7 +54,7 @@ public class Main {
 
 
 
-
+    //Test amaçlı Öğrenci nesneleri oluşturur.
     private static void testOgrenciolustur(){
 
         // Ogrenci org1 = new Ogrenci("Ahmet", "Can", 30, 95.5, "erkek");

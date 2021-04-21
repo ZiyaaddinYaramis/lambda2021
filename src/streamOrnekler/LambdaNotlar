@@ -133,3 +133,13 @@ COK ÖNEMLI!!!
 
 
 
+Stream api ile bir dosyadan veri nasil okunur, Stream api ile veri nasil islenir ögrenecegiz
+
+
+    Files.lines( dosya yolu = path )
+                 Path.of(" String olarak yol ")
+
+
+
+
+

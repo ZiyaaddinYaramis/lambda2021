@@ -114,10 +114,30 @@ IntStream method'lari;
                       x ve y dahildir.
 
 
-.iterate(1, t->t+1).limit(n)   ==> ara islemdir (terminal degil!)
 
-         iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
-         Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+
+COK ÖNEMLI!!!
+        .iterate(1, t->t+1).limit(n)   ==> ara islemdir (terminal degil!)
+
+                iterate metodu aslında döngülere benzer. Başlangıcı ve artım miktarı parametre olarak verilebilir.
+                Döngünün biteceği sayı ise limit() metodu ile gösterilir.
+
+
+
+
+
+
+// Map : Stream'in transformasyon method'udur. Veriyi degistirir.
+// FlapMap : Nested olan Collection'lari dumuduz bir hale getiriyor, islenmesi kolay olsun diye.
+
+
+
+
+Stream api ile bir dosyadan veri nasil okunur, Stream api ile veri nasil islenir ögrenecegiz
+
+
+    Files.lines( dosya yolu = path )
+                 Path.of(" String olarak yol ")
 
 
 
