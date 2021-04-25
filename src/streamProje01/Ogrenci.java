@@ -1,22 +1,11 @@
 package streamProje01;
 
 public class Ogrenci {
-
-
-
     private String ad;
     private String soyAd;
     private int yas;
     private double diplomaNotu;
     private String cinsiyet;
-
-    // degistirilemez olmasi icin private yaptik
-
-        // CONSTRUCTOR OLUSTURALIM
-    /*
-    mouse'un sag tusuna basip generate sekmesinden constructor secenegini secip
-    Ogrenci clasinda private olarak olusturdugumuz tum  variable(contener)'lardan bir constructor olusturduk
-     */
 
     public Ogrenci(String ad, String soyAd, int yas, double diplomaNotu, String cinsiyet) {
         this.ad = ad;
@@ -68,12 +57,10 @@ public class Ogrenci {
 
     @Override
     public String toString() {
-        return "Ogrenci{" +
-                "ad='" + ad + '\'' +
-                ", soyAd='" + soyAd + '\'' +
-                ", yas=" + yas +
-                ", diplomaNotu=" + diplomaNotu +
-                ", cinsiyet='" + cinsiyet + '\'' +
-                '}';
+        return "ad='" + ad + '\'' +
+                ", soy ad='" + soyAd + '\'' +
+                ", yaş=" + yas +
+                ", diploma Notu=" + diplomaNotu +
+                ", cinsiyet='" + cinsiyet + '\'';
     }
 }
